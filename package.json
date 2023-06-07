@@ -2,8 +2,8 @@
 	"name": "mym-dashboard",
 	"version": "1.1.0",
 	"private": true,
-	"homepage": "https://finalmymdash-k4rocgutq-aaryanshukla.vercel.app",
-	"proxy": "http://localhost:3001",
+	"homepage": "http://mym-dashboard.com",
+	"type": "module",
 	"dependencies": {
 		"@chakra-ui/icons": "^1.1.5",
 		"@chakra-ui/react": "^1.8.8",
@@ -42,13 +42,16 @@
 		"web-vitals": "^1.1.2"
 	},
 	"scripts": {
-		"start": "react-scripts start",
+		"start": "npm run start:both",
+		"start:frontend": "react-scripts start",
+		"start:backend": "ts-node --esm backend/server.ts",
+		"start:both": "concurrently \"npm run start:frontend\" \"npm run start:backend\"",
 		"build": "react-scripts build",
 		"test": "react-scripts test",
 		"eject": "react-scripts eject",
 		"predeploy": "npm run build",
 		"deploy": "gh-pages -d build",
-		"server": "node server.ts"
+		"server": "ts-node --esm backend/server.ts"
 	},
 	"eslintConfig": {
 		"extends": [
@@ -71,6 +74,8 @@
 	"devDependencies": {
 		"@types/react-calendar": "^3.5.2",
 		"@types/react-router-dom": "^5.3.3",
-		"gh-pages": "^3.2.3"
+		"concurrently": "^6.0.2",
+		"gh-pages": "^3.2.3",
+		"nodemon": "^2.0.22"
 	}
 }

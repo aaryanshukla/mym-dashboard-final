@@ -7,7 +7,7 @@ import AdminLayout from './layouts/admin';
 import RTLLayout from './layouts/rtl';
 import { ChakraProvider } from '@chakra-ui/react';
 import theme from './theme/theme';
-
+console.log("Sanity Test")
 ReactDOM.render(
 	<ChakraProvider theme={theme}>
 		<React.StrictMode>

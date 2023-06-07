@@ -32,7 +32,7 @@ export default function Conversion(props: { [x: string]: any }) {
 	useEffect(() => {
 	  // Fetch user data from the backend
 	  axios
-		.get('/api/tickets') // Replace '/api/user' with the actual endpoint to fetch user data
+		.get('localhost:3001/api/tickets') // Replace '/api/user' with the actual endpoint to fetch user data
 		.then(response => {
 		  setUserData(response.data); // Update the state with the fetched user data
 		  setLoading(false); // Set loading state to false
@@ -56,6 +56,8 @@ export default function Conversion(props: { [x: string]: any }) {
 	  if (error) {
 		return <div>Error: {error.message}</div>;
 	  }
+	  console.log("Test#3")
+
 	
 	return (
 		<Card p='20px' alignItems='center' flexDirection='column' w='100%' {...rest}>

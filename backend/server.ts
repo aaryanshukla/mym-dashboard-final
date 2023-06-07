@@ -1,7 +1,8 @@
 import express from 'express';
 import axios from 'axios';
 import dotenv from 'dotenv';
-require('dotenv').config();
+dotenv.config();
+
 
 
 
@@ -14,10 +15,10 @@ let completedTicketsOverallCount = 0; // Variable to store the overall amount of
 let mopTicketsDone = 0; 
 
 app.get('/api/tickets', async (req, res) => {
-  
+  console.log("I am alive")
   try {
     // JIRA API details
-    const jiraUrl = process.env.JIRA_URL || '';
+    const jiraUrl = process.env.JIRA_URL
     const apiUsername = process.env.API_USERNAME || '';
     const apiToken = process.env.API_TOKEN || '';
     const getTickets = async (jqlQuery: string) => {
@@ -67,7 +68,7 @@ app.get('/api/tickets', async (req, res) => {
     
       if (response.status === 200) {
         const completedTickets = response.data.issues;
-        const ticketNames = completedTickets.map((ticket) => ticket.fields.summary);
+        const ticketNames = completedTickets.map((ticket: { fields: { summary: string } }) => ticket.fields.summary);
     
         return {
           total: completedTickets.length,

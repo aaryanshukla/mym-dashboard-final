@@ -45,15 +45,18 @@ import {
   
 	useEffect(() => {
 	  // Fetch user data from the backend
+	  console.log("I am in the frontend")
 	  axios
-		.get('/api/tickets') // Replace '/api/user' with the actual endpoint to fetch user data
+		.get('localhost:3001/api/tickets') // Replace '/api/user' with the actual endpoint to fetch user data
 		.then((response: AxiosResponse<userData>) => {
 		  setUserData(response.data); // Update the state with the fetched user data
 		  setLoading(false); // Set loading state to false
+		  console.log("Failed")
+
 		})
 		.catch((error) => {
-		  setError(error); // Set error state if an error occurs
-		  setLoading(false); // Set loading state to false
+		  setError(error); 
+		  setLoading(false); 
 		});
 	}, []);
   

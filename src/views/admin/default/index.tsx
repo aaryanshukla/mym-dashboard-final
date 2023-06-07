@@ -43,7 +43,7 @@ interface userData {
 	  useEffect(() => {
 		// Fetch user data from the backend
 		axios
-		  .get('/api/tickets') // Replace '/api/user' with the actual endpoint to fetch user data
+		  .get('localhost:3001/api/tickets') // Replace '/api/user' with the actual endpoint to fetch user data
 		  .then(response => {
 			setUserData(response.data); // Update the state with the fetched user data
 			setLoading(false); // Set loading state to false
